@@ -1,8 +1,13 @@
 {
   "products": [
     {
-      
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcCqO0gZ38YRP9W6_uZBONkr5zvAFKsvRDIqh-W9BtAA&s",
+      "price": 500,
+      "brand": "Puma",
+      "name": "T-Shirt",
+      "category": "top-wear",
+      "gender": "male",
+      "id": 2
     }
   ]
-  
 }

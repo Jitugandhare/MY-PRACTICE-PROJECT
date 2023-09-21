@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { postProduct } from "../redux/Products/action";
 
 const initialState = {
   image: "",
@@ -11,22 +13,21 @@ const initialState = {
 };
 export const Admin = () => {
   const [product, setProduct] = useState(initialState);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    
-    setProduct(prev => {
-      return {...prev,[name]:name==='price' ? +value:value}
-    })
-   
-  }; 
+
+    setProduct((prev) => {
+      return { ...prev, [name]: name === "price" ? +value : value };
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(postProduct(product));
     console.log(product);
-  }
-
-  return (
+  };return (
     <DIV>
       <h1>ADD PRODUCT</h1>
       <form action="" onSubmit={handleSubmit}>
@@ -85,9 +86,10 @@ export const Admin = () => {
 };
 
 const DIV = styled.div`
+  border: 2px solid grey;
   width: 500px;
   margin: auto;
-  border: 1x solid grey;
+
   padding: 20px;
 
   form {
